@@ -1,5 +1,7 @@
 {
   "name": "hackathon-just-eat-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
