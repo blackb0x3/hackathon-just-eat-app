@@ -18,6 +18,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class AccountPage {
 
+  public userId: string;
   public accountDetails: Account;
 
   public showOldPass: boolean;
@@ -42,6 +43,7 @@ export class AccountPage {
         console.log(err);
       })
       .then((resp) => {
+        this.userId = resp;
         this.hackathonApi.getAccountDetails(resp)
           .catch(this.hackathonApi.handleError)
           .subscribe((resp) => {
@@ -63,5 +65,9 @@ export class AccountPage {
   showConfirmPassword() {
     this.showConfirmPass = !this.showConfirmPass;
     this.confirmPasswordType = this.showConfirmPass ? "text" : "password";
+  }
+
+  updateAccountDetails() {
+    this.hackathonApi.updateAccountDetails(this.userId, this.accountDetails);
   }
 }

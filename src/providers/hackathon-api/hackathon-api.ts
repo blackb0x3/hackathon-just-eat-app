@@ -32,7 +32,8 @@ export class HackathonApiProvider {
     'userRegister': '',
     'userLogin': '',
     'userRequest': '',
-    'accountDetails': ''
+    'accountDetails': '',
+    'updateAccountDetails': ''
   };
   // *END OF* ENDPOINTS
 
@@ -63,6 +64,13 @@ export class HackathonApiProvider {
       });
 
     return resp;
+  }
+
+  updateAccountDetails(userId: string, accountInfo: Account) {
+    return this.http.post(this.url + this.endpoints['updateAccountDetails'], {
+      id: userId,
+      newIndo: accountInfo
+    }, this.defaultHeaders);
   }
 
   handleError(err: any) {
