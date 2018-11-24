@@ -6,7 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+<<<<<<< HEAD
 import { LoginPage } from '../pages/login/login';
+=======
+import { HackathonApiProvider } from '../providers/hackathon-api/hackathon-api';
+>>>>>>> origin
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { LoginPage } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HackathonApiProvider
   ]
 })
 export class AppModule {}
