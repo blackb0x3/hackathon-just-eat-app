@@ -29,7 +29,8 @@
       <ion-radio value="true"></ion-radio>
     </ion-item>
   </ion-list>
-  <form [[formGroup]="registerForm" (ngSubmit)="register()">
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <ion-item>
       <ion-label *ngIf="!regAsBusiness">your name</ion-label>
       <ion-label *ngIf="regAsBusiness">company name</ion-label>
@@ -68,5 +69,12 @@
       <ion-label>profile picture</ion-label>
       <ion-input type="file" formControlName="profilePicture"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>I accept that I have read the terms and conditions etc.</ion-label>
+      <ion-checkbox formControlName="tcAccepted"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button type="submit" [disabled]="!registerForm.valid">Register</button>
   </form>
 </ion-content>

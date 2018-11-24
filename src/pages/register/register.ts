@@ -21,6 +21,7 @@ export class RegisterPage {
   public type: string = "password";
   public registerForm: FormGroup;
   public regAsBusiness: string;
+  public tcAccepted: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -35,7 +36,8 @@ export class RegisterPage {
       phoneNumber: ['', Validators.required],
       email: ['', Validators.email],
       password: ['', Validators.required],
-      profilePicture: ['', Validators.required]
+      profilePicture: ['', Validators.required],
+      tcAccepted: ['', Validators.requiredTrue]
     });
   }
 
