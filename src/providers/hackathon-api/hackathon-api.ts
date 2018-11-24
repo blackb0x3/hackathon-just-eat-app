@@ -32,7 +32,7 @@ export class HackathonApiProvider {
   };
   // *END OF* ENDPOINTS
 
-  userRegister(registrationVals: any) { 
+  register(registrationVals: any) { 
     return this.http.post(this.url + this.endpoints['userRegister'], registrationVals, this.defaultHeaders);
   }
 
@@ -41,10 +41,6 @@ export class HackathonApiProvider {
   }
 
   userRequest() {
-
-  }
-
-  businessRegister() {
 
   }
 

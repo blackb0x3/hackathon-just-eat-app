@@ -20,6 +20,7 @@ export class RegisterPage {
   public showPass: boolean = false;
   public type: string = "password";
   public registerForm: FormGroup;
+  public regAsBusiness: string;
 
   constructor(
     public navCtrl: NavController,
@@ -27,9 +28,9 @@ export class RegisterPage {
     private formBuilder: FormBuilder,
     public hackathonApi: HackathonApiProvider
   ) {
+    this.regAsBusiness
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      name: ['', Validators.required],
       homeAddress: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       email: ['', Validators.email],
@@ -48,9 +49,10 @@ export class RegisterPage {
   }
 
   register() {
-    this.registerForm.value['name'] = this.registerForm.get('firstName') + ' ' + this.registerForm.get('lastName');
     //console.log(this.registerForm.value);
-    this.hackathonApi.userRegister(this.registerForm.value)
+    this.registerForm.value['isBusiness'] = this.regAsBusiness === 'true';
+
+    this.hackathonApi.register(this.registerForm.value)
       .catch(this.hackathonApi.handleError)
       .subscribe((resp) => {
         if (!resp['success']) {

@@ -14,15 +14,26 @@
 
 
 <ion-content padding>
-  <form [[formGroup]="registerForm" (ngSubmit)="register()">
+  <ion-list radio-group [(ngModel)]="regAsBusiness">
+    <ion-list-header>
+      register as:
+    </ion-list-header>
+
     <ion-item>
-      <ion-label>first name</ion-label>
-      <ion-input type="text" formControlName="firstName"></ion-input>
+      <ion-label>user</ion-label>
+      <ion-radio value="false"></ion-radio>
     </ion-item>
 
     <ion-item>
-      <ion-label>last name</ion-label>
-      <ion-input type="text" formControlName="lastName"></ion-input>
+      <ion-label>business</ion-label>
+      <ion-radio value="true"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <form [[formGroup]="registerForm" (ngSubmit)="register()">
+    <ion-item>
+      <ion-label *ngIf="!regAsBusiness">your name</ion-label>
+      <ion-label *ngIf="regAsBusiness">company name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
 
     <ion-item>
