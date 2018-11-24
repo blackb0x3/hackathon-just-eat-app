@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { Account } from '../../models/account';
+import { AccountPage } from '../../pages/account/account';
 
 /*
   Generated class for the HackathonApiProvider provider.
@@ -20,7 +23,7 @@ export class HackathonApiProvider {
     accept: "application/json"
   };
 
-  private url: string = ''; // TODO
+  private url: string = '/'; // TODO
   // ENDPOINTS
   private endpoints: any = {
     'businessRegister': '',
@@ -29,6 +32,7 @@ export class HackathonApiProvider {
     'userRegister': '',
     'userLogin': '',
     'userRequest': '',
+    'accountDetails': ''
   };
   // *END OF* ENDPOINTS
 
@@ -50,6 +54,15 @@ export class HackathonApiProvider {
 
   businessRequest() {
 
+  }
+
+  getAccountDetails(userId: string): Observable<Account> {
+    let resp: Observable<Account> = this.http.get(this.url + this.endpoints['accountDetails'] + '?id=' + userId)
+      .map((account: Account) => {
+        return account;
+      });
+
+    return resp;
   }
 
   handleError(err: any) {
