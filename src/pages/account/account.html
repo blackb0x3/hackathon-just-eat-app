@@ -1,0 +1,83 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="updateAccountDetails()">
+    <ion-item>
+      <ion-label *ngIf="!accountDetails.regAsBusiness">your name</ion-label>
+      <ion-label *ngIf="accountDetails.regAsBusiness">company name</ion-label>
+      <ion-input type="text" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>home address</ion-label>
+      <ion-input type="text" [(ngModel)]="accountDetails.homeAddress" name="homeAddress"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>phone number</ion-label>
+      <ion-input type="text" [(ngModel)]="accountDetails.phoneNumber" name="phoneNumber"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>email</ion-label>
+      <ion-input type="email" [(ngModel)]="accountDetails.email" name="email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>old password</ion-label>
+      <ion-input type="{{oldPasswordType}}" [(ngModel)]="this.oldPassword" name="oldPassword"></ion-input>
+
+      <button *ngIf="!showOldPass" ion-button clear color="dark" type="button" item-right (click)="showOldPassword()">
+        <ion-icon name="ios-eye-off-outline"></ion-icon>
+      </button>
+
+      <button *ngIf="showOldPass" ion-button clear color="dark" type="button" item-right (click)="showOldPassword()">
+        <ion-icon name="ios-eye-outline"></ion-icon>
+      </button>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>new password</ion-label>
+      <ion-input type="{{newPasswordType}}" [(ngModel)]="this.newPassword" name="newPassword"></ion-input>
+
+      <button *ngIf="!showNewPass" ion-button clear color="dark" type="button" item-right (click)="showNewPassword()">
+        <ion-icon name="ios-eye-off-outline"></ion-icon>
+      </button>
+
+      <button *ngIf="showNewPass" ion-button clear color="dark" type="button" item-right (click)="showNewPassword()">
+        <ion-icon name="ios-eye-outline"></ion-icon>
+      </button>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>confirm password</ion-label>
+      <ion-input type="{{confirmPasswordType}}" [(ngModel)]="this.confirmPassword" name="confirmPassword"></ion-input>
+
+      <button *ngIf="!showConfirmPass" ion-button clear color="dark" type="button" item-right (click)="showConfirmPassword()">
+        <ion-icon name="ios-eye-off-outline"></ion-icon>
+      </button>
+
+      <button *ngIf="showConfirmPass" ion-button clear color="dark" type="button" item-right (click)="showConfirmPassword()">
+        <ion-icon name="ios-eye-outline"></ion-icon>
+      </button>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>profile picture</ion-label>
+      <ion-input type="file" [(ngModel)]="" name="profilePicture"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
