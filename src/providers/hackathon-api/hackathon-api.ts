@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the HackathonApiProvider provider.
@@ -15,6 +16,10 @@ export class HackathonApiProvider {
     console.log('Hello HackathonApiProvider Provider');
   }
 
+  private defaultHeaders: any = {
+    accept: "application/json"
+  };
+
   private url: string = ''; // TODO
   // ENDPOINTS
   private endpoints: any = {
@@ -27,8 +32,8 @@ export class HackathonApiProvider {
   };
   // *END OF* ENDPOINTS
 
-  userRegister() {
-
+  userRegister(registrationVals: any) { 
+    return this.http.post(this.url + this.endpoints['userRegister'], registrationVals, this.defaultHeaders);
   }
 
   userLogin() {
@@ -49,5 +54,16 @@ export class HackathonApiProvider {
 
   businessRequest() {
 
+  }
+
+  handleError(err: any) {
+    this.logResponse(err);
+    return Observable.throw(err);
+  }
+
+  logResponse(resp: any) {
+    console.group(`HTTP RESPONSE ${resp.status}`);
+    console.log(resp);
+    console.groupEnd();
   }
 }
