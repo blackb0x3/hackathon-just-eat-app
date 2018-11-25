@@ -7,7 +7,7 @@
 
 <ion-header>
     <ion-navbar>
-      <ion-title>Avatar List</ion-title>
+      <ion-title>Offer List</ion-title>
     </ion-navbar>
   </ion-header>
   
@@ -16,7 +16,7 @@
   
       <ion-list-header>Today</ion-list-header>
   
-      <ion-item>
+      <ion-item (click)="pressed()">
         <ion-avatar item-start>
           <img src="assets/img/avatar-ts-woody.png">
         </ion-avatar>
@@ -25,7 +25,7 @@
         <ion-note item-end>Time</ion-note>
       </ion-item>
   
-      <ion-item>
+      <ion-item (click)="pressed()">
         <ion-avatar item-start>
           <img src="assets/img/avatar-ts-buzz.png">
         </ion-avatar>
@@ -34,8 +34,8 @@
         <ion-note item-end>Time</ion-note>
       </ion-item>
   
-      <ion-item>
-          <ion-avatar item-start>
+      <ion-item (click)="pressed()">
+          <ion-avatar item-start >
             <img src="assets/img/avatar-ts-buzz.png">
           </ion-avatar>
           <h2>Ben</h2>
@@ -43,7 +43,7 @@
           <ion-note item-end>Time</ion-note>
         </ion-item>
   
-        <ion-item>
+        <ion-item (click)="pressed()">
             <ion-avatar item-start>
               <img src="assets/img/avatar-ts-buzz.png">
             </ion-avatar>

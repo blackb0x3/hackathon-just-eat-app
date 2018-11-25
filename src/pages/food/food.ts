@@ -25,6 +25,7 @@ export class FoodPage {
 
   submit(){
     this.navCtrl.push(PostsPage);
+    console.log("work please");
     
   }
 }
