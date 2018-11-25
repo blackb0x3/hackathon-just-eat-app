@@ -12,6 +12,8 @@ import { FoodPage } from '../pages/food/food';
 import { PostsPage } from '../pages/posts/posts';
 import { DetailedViewPage } from '../pages/detailed-view/detailed-view';
 import { UtilityProvider } from '../providers/utility/utility';
+import { RegisterPage } from '../pages/register/register';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { UtilityProvider } from '../providers/utility/utility';
     LoginPage,
     FoodPage,
     PostsPage,
-    DetailedViewPage
+    DetailedViewPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -33,7 +37,8 @@ import { UtilityProvider } from '../providers/utility/utility';
     LoginPage,
     FoodPage,
     PostsPage, 
-    DetailedViewPage
+    DetailedViewPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

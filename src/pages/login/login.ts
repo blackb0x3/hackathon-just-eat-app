@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { FoodPage } from '../food/food';
+import { RegisterPage } from '../register/register';
 
 /**
  * Generated class for the LoginPage page.
@@ -34,11 +35,12 @@ export class LoginPage {
 
   login(){
   
+    this.navCtrl.push(FoodPage);
     console.log("Username: " + this.username);
     console.log("Password: " + this.password);
   }
 
   register(){
-    this.navCtrl.push(FoodPage);
+    this.navCtrl.push(RegisterPage);
   }
 }
