@@ -26,12 +26,9 @@ export class HackathonApiProvider {
   private url: string = '/'; // TODO
   // ENDPOINTS
   private endpoints: any = {
-    'businessRegister': '',
-    'businessLogin': '',
-    'businessRequest': '',
-    'userRegister': '',
-    'userLogin': '',
-    'userRequest': '',
+    'register': '',
+    'login': '',
+    'foodRequest': '',
     'accountDetails': '',
     'updateAccountDetails': ''
   };
@@ -41,27 +38,12 @@ export class HackathonApiProvider {
     return this.http.post(this.url + this.endpoints['userRegister'], registrationVals, this.defaultHeaders);
   }
 
-  userLogin(username, password) {
-    if(username && password == true){
-      console.log("correct password")
-      return true;
-    } else {
-      console.log("incorrect password")
-      return false;
-    }
-
+  login(username: string, password: string) {
+    return this.http.post(this.url + this.endpoints['login'], {user: username, pass: password}, this.defaultHeaders);
   }
 
-  userRequest() {
-
-  }
-
-  businessLogin() {
-
-  }
-
-  businessRequest() {
-
+  request(foodRequestVals: any) {
+    return this.http.post(this.url + this.endpoints['foodRequest'], foodRequestVals, this.defaultHeaders);
   }
 
   getAccountDetails(userId: string): Observable<Account> {
