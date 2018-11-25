@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { FoodPage } from '../food/food';
 
 /**
  * Generated class for the LoginPage page.
@@ -37,7 +38,7 @@ export class LoginPage {
     console.log("Password: " + this.password);
   }
 
-  // goRegister(){
-  //   this.navCtrl.push();
-  // }
+  register(){
+    this.navCtrl.push(FoodPage);
+  }
 }

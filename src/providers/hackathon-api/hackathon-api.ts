@@ -31,7 +31,14 @@ export class HackathonApiProvider {
 
   }
 
-  userLogin() {
+  userLogin(username, password) {
+    if(username && password == true){
+      console.log("correct password")
+      return true;
+    } else {
+      console.log("incorrect password")
+      return false;
+    }
 
   }
 

@@ -6,17 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-<<<<<<< HEAD
 import { LoginPage } from '../pages/login/login';
-=======
 import { HackathonApiProvider } from '../providers/hackathon-api/hackathon-api';
->>>>>>> origin
+import { FoodPage } from '../pages/food/food';
+import { PostsPage } from '../pages/posts/posts';
+import { DetailedViewPage } from '../pages/detailed-view/detailed-view';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    FoodPage,
+    PostsPage,
+    DetailedViewPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,10 @@ import { HackathonApiProvider } from '../providers/hackathon-api/hackathon-api';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    FoodPage,
+    PostsPage, 
+    DetailedViewPage
   ],
   providers: [
     StatusBar,
