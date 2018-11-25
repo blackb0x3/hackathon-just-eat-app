@@ -1,0 +1,80 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list radio-group [(ngModel)]="regAsBusiness">
+    <ion-list-header>
+      register as:
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>user</ion-label>
+      <ion-radio value="false"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>business</ion-label>
+      <ion-radio value="true"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <ion-item>
+      <ion-label *ngIf="!regAsBusiness">your name</ion-label>
+      <ion-label *ngIf="regAsBusiness">company name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>home address</ion-label>
+      <ion-input type="text" formControlName="homeAddress"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>phone number</ion-label>
+      <ion-input type="text" formControlName="phoneNumber"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>password</ion-label>
+      <ion-input type="{{type}}" formControlName="password"></ion-input>
+
+      <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon name="ios-eye-off-outline"></ion-icon>
+      </button>
+
+      <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon name="ios-eye-outline"></ion-icon>
+      </button>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>profile picture</ion-label>
+      <ion-input type="file" formControlName="profilePicture"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>I accept that I have read the terms and conditions etc.</ion-label>
+      <ion-checkbox formControlName="tcAccepted"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </form>
+</ion-content>

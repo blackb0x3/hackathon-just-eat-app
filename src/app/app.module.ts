@@ -11,6 +11,7 @@ import { HackathonApiProvider } from '../providers/hackathon-api/hackathon-api';
 import { FoodPage } from '../pages/food/food';
 import { PostsPage } from '../pages/posts/posts';
 import { DetailedViewPage } from '../pages/detailed-view/detailed-view';
+import { UtilityProvider } from '../providers/utility/utility';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DetailedViewPage } from '../pages/detailed-view/detailed-view';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HackathonApiProvider
+    HackathonApiProvider,
+    UtilityProvider
   ]
 })
 export class AppModule {}

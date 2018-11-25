@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { Account } from '../../models/account';
+import { AccountPage } from '../../pages/account/account';
 
 /*
   Generated class for the HackathonApiProvider provider.
@@ -15,7 +19,11 @@ export class HackathonApiProvider {
     console.log('Hello HackathonApiProvider Provider');
   }
 
-  private url: string = ''; // TODO
+  private defaultHeaders: any = {
+    accept: "application/json"
+  };
+
+  private url: string = '/'; // TODO
   // ENDPOINTS
   private endpoints: any = {
     'businessRegister': '',
@@ -24,11 +32,13 @@ export class HackathonApiProvider {
     'userRegister': '',
     'userLogin': '',
     'userRequest': '',
+    'accountDetails': '',
+    'updateAccountDetails': ''
   };
   // *END OF* ENDPOINTS
 
-  userRegister() {
-
+  register(registrationVals: any) { 
+    return this.http.post(this.url + this.endpoints['userRegister'], registrationVals, this.defaultHeaders);
   }
 
   userLogin(username, password) {
@@ -46,15 +56,38 @@ export class HackathonApiProvider {
 
   }
 
-  businessRegister() {
-
-  }
-
   businessLogin() {
 
   }
 
   businessRequest() {
 
+  }
+
+  getAccountDetails(userId: string): Observable<Account> {
+    let resp: Observable<Account> = this.http.get(this.url + this.endpoints['accountDetails'] + '?id=' + userId)
+      .map((account: Account) => {
+        return account;
+      });
+
+    return resp;
+  }
+
+  updateAccountDetails(userId: string, accountInfo: Account) {
+    return this.http.post(this.url + this.endpoints['updateAccountDetails'], {
+      id: userId,
+      newIndo: accountInfo
+    }, this.defaultHeaders);
+  }
+
+  handleError(err: any) {
+    this.logResponse(err);
+    return Observable.throw(err);
+  }
+
+  logResponse(resp: any) {
+    console.group(`HTTP RESPONSE ${resp.status}`);
+    console.log(resp);
+    console.groupEnd();
   }
 }
