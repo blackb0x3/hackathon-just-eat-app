@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetailedViewPage } from '../detailed-view/detailed-view';
 import { AlertController } from 'ionic-angular';
+import { Account } from '../../models/account';
+
+import accounts from '../../mocks/accounts/accounts';
 
 
 /**
@@ -18,11 +21,17 @@ import { AlertController } from 'ionic-angular';
 })
 export class PostsPage {
 
+  account: Account;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostsPage');
+  }
+
+  ionViewWillLoad() {
+    this.account = accounts[0];
   }
 
   pressed() {

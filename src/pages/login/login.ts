@@ -5,6 +5,9 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { FoodPage } from '../food/food';
 import { RegisterPage } from '../register/register';
 
+import accounts from '../../mocks/accounts/accounts';
+import { PostsPage } from '../posts/posts';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -33,11 +36,8 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  login(){
-  
-    this.navCtrl.push(FoodPage);
-    console.log("Username: " + this.username);
-    console.log("Password: " + this.password);
+  login() {
+    this.navCtrl.push(PostsPage);
   }
 
   register(){
